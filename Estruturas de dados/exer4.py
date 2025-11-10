@@ -25,6 +25,9 @@ def unica(lista):
     lista = set(lista)
     return print(lista)
 
+def comum():
+    ...
+
 def main():
     lista = []
     menu()
