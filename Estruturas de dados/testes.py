@@ -1,14 +1,4 @@
-alunos = [
-    {
-        'nome': 'João Silva',
-        'idade': 20,
-        'curso': 'Java'
-    },
-    {
-        'nome': 'Vanderson',
-        'idade': 37,
-        'curso': 'Python'
-    }
-]
-for i, aluno in enumerate(alunos):
-    print(alunos[i]['nome'])
+with open('/home/vanderson/python_treino/Estruturas de dados/texto.txt', 'r', encoding='utf-8') as arquivo:
+    conteudo = arquivo.read()
+
+print(conteudo)
