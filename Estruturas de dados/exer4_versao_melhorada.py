@@ -15,7 +15,7 @@ def frequencia(texto):
     """Exibe a frequência de cada palavra no texto"""
     palavras = texto.lower().split()
     contador = Counter(palavras)
-    
+
     print("\n--- FREQUÊNCIA DAS PALAVRAS ---")
     for palavra, freq in sorted(contador.items()):
         vez_vezes = "vez" if freq == 1 else "vezes"
@@ -26,9 +26,9 @@ def unica(texto):
     """Exibe apenas palavras que aparecem uma única vez"""
     palavras = texto.lower().split()
     contador = Counter(palavras)
-    
+
     unicas = [palavra for palavra, freq in contador.items() if freq == 1]
-    
+
     print("\n--- PALAVRAS ÚNICAS ---")
     if unicas:
         print(f"Palavras que aparecem apenas 1 vez: {sorted(unicas)}")
@@ -40,9 +40,9 @@ def comum(texto):
     """Exibe as 5 palavras mais comuns"""
     palavras = texto.lower().split()
     contador = Counter(palavras)
-    
+
     mais_comuns = contador.most_common(5)
-    
+
     print("\n--- 5 PALAVRAS MAIS COMUNS ---")
     for posicao, (palavra, freq) in enumerate(mais_comuns, 1):
         print(f"{posicao}º - '{palavra}': {freq} ocorrências")
@@ -52,9 +52,9 @@ def compara(texto1, texto2):
     """Exibe palavras presentes em ambos os textos"""
     palavras1 = set(texto1.lower().split())
     palavras2 = set(texto2.lower().split())
-    
+
     palavras_comuns = palavras1 & palavras2
-    
+
     print("\n--- PALAVRAS EM AMBOS OS TEXTOS ---")
     if palavras_comuns:
         print(f"Palavras em comum: {sorted(palavras_comuns)}")
@@ -66,18 +66,18 @@ def compara(texto1, texto2):
 def main():
     # Lê os arquivos UMA VEZ antes do loop
     try:
-        with open('texto.txt', 'r', encoding='utf-8') as arquivo:
+        with open('/home/vanderson/python_treino/Estruturas de dados/texto.txt', 'r', encoding='utf-8') as arquivo:
             conteudo = arquivo.read()
-        with open('texto2.txt', 'r', encoding='utf-8') as arquivo:
+        with open('/home/vanderson/python_treino/Estruturas de dados/texto2.txt', 'r', encoding='utf-8') as arquivo:
             conteudo2 = arquivo.read()
     except FileNotFoundError as e:
         print(f"Erro: Arquivo não encontrado - {e}")
         return
-    
+
     while True:
         menu()
         opcao = input("Digite uma opção: ").strip()
-        
+
         if opcao == '1':
             frequencia(conteudo)
         elif opcao == '2':
@@ -91,7 +91,7 @@ def main():
             break
         else:
             print("❌ Opção inválida! Tente novamente.")
-        
+
         input("\nPressione ENTER para continuar...")
 
 

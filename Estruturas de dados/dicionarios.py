@@ -10,6 +10,7 @@ Dicionário = Estrutura chave-valor
 - Não ordenado (Python 3.7+ mantém ordem de inserção)
 """
 
+from collections import Counter
 print("="*70)
 print("PARTE 1: CRIANDO DICIONÁRIOS")
 print("="*70)
@@ -228,7 +229,6 @@ for palavra in palavras:
 print(f"\n4. Contagem de palavras: {contagem}")
 
 # 5. Usando Counter (mais fácil)
-from collections import Counter
 contagem_auto = Counter(palavras)
 print(f"5. Com Counter: {dict(contagem_auto)}")
 
@@ -356,7 +356,8 @@ print(f"Valor total em estoque: R$ {total:,.2f}")
 
 # Produtos mais caros
 mais_caro = max(inventario.items(), key=lambda x: x[1]['preco'])
-print(f"Produto mais caro: {mais_caro[1]['nome']} - R$ {mais_caro[1]['preco']}")
+print(
+    f"Produto mais caro: {mais_caro[1]['nome']} - R$ {mais_caro[1]['preco']}")
 
 # Exercício 3: Contato Telefônico
 print("\n📞 EXERCÍCIO 3: Agenda de Contatos")
@@ -364,9 +365,11 @@ print("-" * 70)
 
 agenda = {}
 
+
 def adicionar_contato(nome, telefone, email=None):
     agenda[nome] = {'telefone': telefone, 'email': email}
     print(f"✓ {nome} adicionado!")
+
 
 def buscar_contato(nome):
     if nome in agenda:
@@ -376,6 +379,7 @@ def buscar_contato(nome):
         print(f"   Email: {info.get('email', 'Não cadastrado')}")
     else:
         print(f"❌ {nome} não encontrado")
+
 
 adicionar_contato("João", "11-98765-4321", "joao@email.com")
 adicionar_contato("Maria", "11-91234-5678")

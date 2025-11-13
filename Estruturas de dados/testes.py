@@ -1,4 +1,12 @@
-with open('/home/vanderson/python_treino/Estruturas de dados/texto.txt', 'r', encoding='utf-8') as arquivo:
-    conteudo = arquivo.read()
+pessoa = [
+    {'nome': 'carlos', 'quantidade': 14, 'preco': 2.5},
+    {'nome': 'ludmilla','quantidade': 35, 'preco': 10}
+]
 
-print(conteudo)
+valores = [valor for dicionario in pessoa for valor in dicionario.values()]
+
+valor = 0
+for dicionario in pessoa:
+        valor += dicionario['quantidade'] * dicionario['preco']
+
+print(valor)
