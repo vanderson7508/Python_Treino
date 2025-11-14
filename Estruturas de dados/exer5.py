@@ -4,9 +4,10 @@ def menu():
     print(f"\n{40*'*'} MENU {40*'*'}")
     print("1 - Adiciona produto")
     print("2 - Atualizar quantidade de estoque")
-    print("3 - ")
-    print("4 - ")
-    print("5 - SAIR")
+    print("3 - Exibir estoque")
+    print("4 - Valor total de estoque")
+    print("5 - Produtos com baixo estoque")
+    print("6 - SAIR")
     print(f"{85*'*'}\n")
 
 
@@ -33,11 +34,24 @@ def atualizar_produto(lista):
             produto["quantidade"] = qtd_alterar
             return lista
 
+
+def exibir_estoque(lista):
+    for i, produto in enumerate(lista):
+        print(f"{i+1} - {produto}")
+
+
 def valor_total(lista):
     total = 0
     for dicionario in lista:
         total += dicionario['preco'] * dicionario['quantidade']
     print(f"O valor total em estoque é de {total}")
+
+
+def estoque_baixo(lista):
+    for dicionario in lista:
+        if dicionario['quantidade'] < 5:
+            print(dicionario)
+
 
 def main():
     estoque = []
@@ -49,10 +63,12 @@ def main():
         elif opcao == "2":
             atualizar_produto(estoque)
         elif opcao == "3":
-            print(estoque)
+            exibir_estoque(estoque)
         elif opcao == "4":
             valor_total(estoque)
         elif opcao == "5":
+            estoque_baixo(estoque)
+        elif opcao == "6":
             break
 
         input("\nPressione ENTER para continuar...")
